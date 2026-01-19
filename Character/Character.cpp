@@ -34,7 +34,10 @@ void ACharacter::Attack()
 
 void ACharacter::TakeDamage(int DamageAmount)
 {
-    Hp -= DamageAmount;
+    // 1. 상태 변경 (빼기 계산)
+    Hp = Hp - DamageAmount;
 
+    // 2. 결과 출력 (변경된 상태 확인)
     cout << Name << "가 " << DamageAmount << "의 피해를 입었습니다." << endl;
+    cout << "   -> 남은 체력: " << Hp << endl; // 이 줄을 추가해서 눈으로 확인!
 }
