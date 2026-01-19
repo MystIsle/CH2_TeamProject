@@ -27,8 +27,10 @@ ACharacter::~ACharacter()
     cout << "ACharacter 소멸됨" << endl;
 }
 
-void ACharacter::Attack()
+void ACharacter::Attack(ACharacter* Target)
 {
+    Target->TakeDamage(Atk);
+    
     cout << Name << "가 공격합니다!" << Atk << endl;
 }
 

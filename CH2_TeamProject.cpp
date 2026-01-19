@@ -1,14 +1,40 @@
-﻿// 파일명: Main.cpp
+﻿#include <Windows.h>
+#include <iostream>
+
 #include "Character/Character.h"
 
-int main() 
+using namespace std;
+
+int main()
 {
-    ACharacter* MyChar = new ACharacter();
+    // 1. 캐릭터 생성 (이름, 체력, 공격력 자유 설정)
+    ACharacter* Player = new ACharacter("나의 용사", 200, 15);
+    ACharacter* Monster = new ACharacter("무서운 오크", 100, 10);
+
+    cout << "===  데스매치 시작!  ===" << endl;
+    Sleep(1000);
     
-    MyChar->Attack();
-    MyChar->TakeDamage(30);
-    
-    delete MyChar;
-    
+    while (!Player->IsDead() && !Monster->IsDead()) 
+    {
+        Player->Attack(Monster);
+        if (Monster->IsDead())
+        {
+            cout << "몬스터가 쓰러졌습니다! 승리!" << endl;
+            break;
+        }
+        
+        Sleep(500);
+        Monster->Attack(Player);
+        if (Player->IsDead())
+        {
+            cout << "플레이어가 쓰러졌습니다... 패배..." << endl;
+            break;
+        }
+
+        Sleep(1000);
+    }
+
+    delete Player;
+    delete Monster;
     return 0;
 }
