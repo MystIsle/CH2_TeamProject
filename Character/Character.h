@@ -9,6 +9,7 @@ class ACharacter
 {
 public:
     ACharacter();
+    ACharacter(string NewName, int NewHp, int NewAtk);
     ~ACharacter();
     
 protected:
