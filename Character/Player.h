@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Character.h"
 
-class APlayer : ACharacter
+class APlayer : public ACharacter
 {
 public:
 	APlayer();
