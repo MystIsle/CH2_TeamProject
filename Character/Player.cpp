@@ -1,28 +1,33 @@
 ﻿#include "Player.h"
 
-APlayer::APlayer()
-	: ACharacter("용사", 200, 30)
+#include <iostream>
+
+APlayer::APlayer(const string& NewName, const FUnitStat& NewStat)
+	: ACharacter(NewName, NewStat)
 {
-	Level = 0;
+	Level = 1;
 	Exp = 0;
 }
 
-void APlayer::SetName(string Name)
+FDamageResult APlayer::Attack(ACharacter* Target)
 {
-	//구현은 나중에~~~
+	FDamageResult result = ACharacter::Attack(Target);
+	string AttackMessage = "이(가) 대검으로 공격합니다.";
+	if (result.bCritical)
+	{
+		AttackMessage = "이(가) 대검으로 뚝배기를 깻습니다~! 아 아프겟다.. ㅠㅠ";
+	}
+	cout << Name << AttackMessage << "데미지: " << result.Damage << endl;
+	cout << Target->GetName() << " HP: " << Target->GetHp() << endl;
+	return result;
 }
 
 void APlayer::LevelUp()
 {
-	//구현은 나중에~~~
+
 }
 
 void APlayer::UseItem()
 {
-	//구현은 나중에~~~
-}
 
-void APlayer::WinBattle()
-{
-	//구현은 나중에~~~
 }

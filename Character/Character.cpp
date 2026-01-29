@@ -1,45 +1,57 @@
-// 파일명: Character.cpp
 #include "Character.h"
 
-// ---------------------------------------------------------
-// [Mission 4] 생성자에서 기본값 설정하기
-// ---------------------------------------------------------
-ACharacter::ACharacter()
-{
-    Name = "Unknown";
-    Hp = 100;
-    Atk = 10;
+#include <iostream>
+#include <random>
 
-    cout << "ACharacter 생성됨: " << Name << " (HP: " << Hp << ")" << endl;
-}
+using namespace std;
 
-ACharacter::ACharacter(string NewName, int NewHp, int NewAtk)
+ACharacter::ACharacter(const string& NewName, const FUnitStat& UnitStat)
 {
-    Name = NewName;
-    Hp = NewHp;
-    Atk = NewAtk;
-    
-    cout << "[생성] " << Name << "가 전장에 나타났습니다! (HP: " << Hp << ")" << endl;
+	Name = NewName;
+	Stat = UnitStat;
+	
+	Stat.Hp = Stat.MaxHp;
+	Stat.Mp = Stat.MaxMp;
+
+	cout << "[생성] " << Name << "가 전장에 나타났습니다! (HP: " << Stat.Hp << ")" << endl;
 }
 
 ACharacter::~ACharacter()
 {
-    cout << "ACharacter 소멸됨" << endl;
+	cout << "ACharacter 소멸됨" << endl;
 }
 
-void ACharacter::Attack(ACharacter* Target)
+FDamageResult ACharacter::Attack(ACharacter* Target)
 {
-    Target->TakeDamage(Atk);
-    
-    cout << Name << "가 공격합니다!" << Atk << endl;
+	int Damage = Stat.Atk;
+	bool bCritical = GetRandomInt() < Stat.Critical;
+	if (bCritical)
+	{
+		Damage = static_cast<int>(Damage * 1.5f);
+	}
+	
+	// - 크리티컬 계산 - 
+	int FinalDamage = Target->TakeDamage(Damage);
+	FDamageResult result;
+	result.Damage = FinalDamage;
+	result.bCritical = bCritical;
+	return result;
 }
 
-void ACharacter::TakeDamage(int DamageAmount)
+int ACharacter::TakeDamage(int DamageAmount)
 {
-    // 1. 상태 변경 (빼기 계산)
-    Hp = Hp - DamageAmount;
+	DamageAmount = DamageAmount - Stat.Def;
+	DamageAmount = std::max(DamageAmount, 0);
+	
+	Stat.Hp = Stat.Hp - DamageAmount;
+	Stat.Hp = std::max(Stat.Hp, 0);
+	return DamageAmount; 
+}
 
-    // 2. 결과 출력 (변경된 상태 확인)
-    cout << Name << "가 " << DamageAmount << "의 피해를 입었습니다." << endl;
-    cout << "   -> 남은 체력: " << Hp << endl; // 이 줄을 추가해서 눈으로 확인!
+int ACharacter::GetRandomInt()
+{
+	static std::random_device rd;
+	static std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> dis(0, 100);
+	return dis(gen);
 }

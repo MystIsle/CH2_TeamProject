@@ -4,15 +4,15 @@
 class APlayer : public ACharacter
 {
 public:
-	APlayer();
+	APlayer(const string& NewName, const FUnitStat& NewStat);
 	
 protected:
 	int Level;
 	int Exp;
 	
 public:
-	void SetName(string Name);
+	FDamageResult Attack(ACharacter* Target) override;
+	
 	void LevelUp();
 	void UseItem();
-	void WinBattle();
 };

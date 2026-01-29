@@ -4,5 +4,8 @@
 class AMonster : public ACharacter
 {
 public:
-	AMonster(string NewName, int NewHp, int NewAtk);
+	AMonster(const string& NewName, const FUnitStat& NewStat);
+
+public:
+	FDamageResult Attack(ACharacter* Target) override;
 };
