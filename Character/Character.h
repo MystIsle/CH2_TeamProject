@@ -2,6 +2,7 @@
 
 #include <string>
 
+class ACharacter;
 using namespace std;
 
 struct FUnitStat
@@ -36,6 +37,11 @@ struct FDamageResult
 {
 	int Damage;
 	bool bCritical;
+	
+	ACharacter* Attacker;
+	ACharacter* Target;
+	
+	void PrintMessage(const string& AttackMessage);
 };
 
 class ACharacter
@@ -51,10 +57,16 @@ protected:
 public:
 	const string& GetName() { return Name; }
 	int GetHp() const { return Stat.Hp; }
+	int GetMaxHp() const { return Stat.MaxHp; }
 	bool IsDead() const { return Stat.Hp <= 0; }
 	
 	virtual FDamageResult Attack(ACharacter* Target);
+	virtual void UseSkill(ACharacter* Target) = 0;
 	int TakeDamage(int DamageAmount);
+	void Heal(int amount);
+	void PrintName();
+	
+	void PlayTurn(ACharacter* Target);
 	
 private:
 	int GetRandomInt();
