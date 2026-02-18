@@ -97,21 +97,12 @@ void ACharacter::ShowStat()
 
 void ACharacter::PlayTurn(ACharacter* Target)
 {
-	const int AttackRate = 70;
-	const int SkillMp = 10;
-	
-	if (GetRandomInt() < AttackRate)
+	if (GetRandomInt() < 50)
 	{
 		Attack(Target);
-		return;
 	}
-	
-	if (Stat.Mp >= SkillMp)
+	else
 	{
-		Stat.Mp -= SkillMp;
 		UseSkill(Target);
-		return;
 	}
-	
-	Attack(Target);
 }
