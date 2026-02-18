@@ -87,6 +87,14 @@ void ACharacter::PrintName()
 	cout << "[" << Name << "] ";
 }
 
+void ACharacter::ShowStat()
+{
+	cout << "[System] ";
+	PrintName();
+	
+	cout << " HP: " << Stat.Hp << " / " << Stat.MaxMp <<  " MP: " << Stat.Mp << " / " << Stat.MaxMp << endl;
+}
+
 void ACharacter::PlayTurn(ACharacter* Target)
 {
 	const int AttackRate = 70;
