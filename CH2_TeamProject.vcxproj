@@ -128,12 +128,14 @@
     <ClCompile Include="Character\Character.cpp" />
     <ClCompile Include="Character\Monster.cpp" />
     <ClCompile Include="Character\Player.cpp" />
+    <ClCompile Include="Skill\Skill.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleManager.h" />
     <ClInclude Include="Character\Character.h" />
     <ClInclude Include="Character\Monster.h" />
     <ClInclude Include="Character\Player.h" />
+    <ClInclude Include="Skill\Skill.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
