@@ -58,16 +58,17 @@ public:
 	const string& GetName() { return Name; }
 	int GetHp() const { return Stat.Hp; }
 	int GetMaxHp() const { return Stat.MaxHp; }
+	int GetAtk() const { return Stat.Atk; }
+	int GetCritical() const { return Stat.Critical; }
 	bool IsDead() const { return Stat.Hp <= 0; }
 	
 	virtual FDamageResult Attack(ACharacter* Target);
 	virtual void UseSkill(ACharacter* Target) = 0;
+	
 	int TakeDamage(int DamageAmount);
 	void Heal(int amount);
 	void PrintName();
 	void ShowStat();
 	void PlayTurn(ACharacter* Target);
-	
-private:
 	int GetRandomInt();
 };

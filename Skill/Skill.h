@@ -2,6 +2,7 @@
 
 class ACharacter;
 
+//부모 클래스
 class USkill
 {
 public:
