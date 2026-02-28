@@ -2,7 +2,7 @@
 #include "../Character/Character.h"
 
 UPlayerStrikeSkill::UPlayerStrikeSkill(ACharacter* NewOwner)
-    : USkill(NewOwner)
+    : USkill(NewOwner, "회심의 일격")
 {
 }
 

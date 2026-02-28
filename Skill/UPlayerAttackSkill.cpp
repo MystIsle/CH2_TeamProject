@@ -3,9 +3,9 @@
 #include <string>
 
 UPlayerAttackSkill::UPlayerAttackSkill(ACharacter* NewOwner)
-    : USkill(NewOwner)
+    : USkill(NewOwner, "대검 공격")
 {
-    
+
 }
 
 void UPlayerAttackSkill::Play(ACharacter* Target)

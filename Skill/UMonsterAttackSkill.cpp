@@ -3,9 +3,9 @@
 #include "../Character/Character.h"
 
 UMonsterAttackSkill::UMonsterAttackSkill(ACharacter* NewOwner)
-    : USkill(NewOwner)
+    : USkill(NewOwner, "이빨 공격")
 {
-    
+
 }
 
 void UMonsterAttackSkill::Play(ACharacter* Target)
