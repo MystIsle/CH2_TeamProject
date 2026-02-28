@@ -1,8 +1,11 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <memory>
 
 class ACharacter;
+class USkill;
 using namespace std;
 
 struct FUnitStat
@@ -53,6 +56,7 @@ public:
 protected:
 	string Name;
 	FUnitStat Stat;
+	vector<unique_ptr<USkill>> Skills;
 
 public:
 	const string& GetName() { return Name; }

@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "../Skill/Skill.h"
 
 #include <iostream>
 #include <random>
