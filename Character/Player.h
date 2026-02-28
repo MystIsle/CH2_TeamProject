@@ -11,8 +11,6 @@ protected:
 	int Exp;
 	
 public:
-	FDamageResult Attack(ACharacter* Target) override;
-	void UseSkill(ACharacter* Target) override;
 	void PlayTurn(ACharacter* Target) override;
 	
 	void LevelUp();

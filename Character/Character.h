@@ -66,13 +66,10 @@ public:
 	int GetCritical() const { return Stat.Critical; }
 	bool IsDead() const { return Stat.Hp <= 0; }
 	
-	virtual FDamageResult Attack(ACharacter* Target);
-	virtual void UseSkill(ACharacter* Target) = 0;
-	
 	int TakeDamage(int DamageAmount);
 	void Heal(int amount);
 	void PrintName();
 	void ShowStat();
-	virtual void PlayTurn(ACharacter* Target);
+	virtual void PlayTurn(ACharacter* Target) = 0;
 	int GetRandomInt(int Max = 100);
 };
