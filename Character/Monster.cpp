@@ -27,6 +27,12 @@ FDamageResult AMonster::Attack(ACharacter* Target)
 	return result;
 }
 
+void AMonster::PlayTurn(ACharacter* Target)
+{
+	int index = GetRandomInt(static_cast<int>(Skills.size()));
+	Skills[index]->Play(Target);
+}
+
 void AMonster::UseSkill(ACharacter* Target)
 {
 	FDamageResult result;

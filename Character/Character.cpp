@@ -75,11 +75,11 @@ void ACharacter::Heal(int amount)
 	cout << ActualHeal << " HP를 회복했습니다...!" << endl;
 }
 
-int ACharacter::GetRandomInt()
+int ACharacter::GetRandomInt(int Max)
 {
 	static std::random_device rd;
 	static std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dis(0, 100);
+	std::uniform_int_distribution<int> dis(0, Max - 1);
 	return dis(gen);
 }
 

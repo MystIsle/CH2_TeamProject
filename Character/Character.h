@@ -73,6 +73,6 @@ public:
 	void Heal(int amount);
 	void PrintName();
 	void ShowStat();
-	void PlayTurn(ACharacter* Target);
-	int GetRandomInt();
+	virtual void PlayTurn(ACharacter* Target);
+	int GetRandomInt(int Max = 100);
 };
