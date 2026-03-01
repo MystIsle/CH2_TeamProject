@@ -20,7 +20,8 @@ void APlayer::PlayTurn(ACharacter* Target)
 	cout << "=== 스킬 목록 ===" << endl;
 	for (int i = 0; i < Skills.size(); i++)
 	{
-		cout << i + 1 << ". " << Skills[i]->GetName() << endl;
+		cout << i + 1 << ". " << Skills[i]->GetName()
+			<< " (MP: " << Skills[i]->GetMpCost() << ")" << endl;
 	}
 
 	int choice = 0;
@@ -32,6 +33,15 @@ void APlayer::PlayTurn(ACharacter* Target)
 		if (choice < 1 || choice > Skills.size())
 		{
 			cout << "잘못된 입력입니다!" << endl;
+			continue;
+		}
+
+		int idx = choice - 1;
+		if (Skills[idx]->CanUse() == false)
+		{
+			cout << "[MP 부족] 다른 스킬을 선택하세요!" << endl;
+			choice = 0;
+			continue;
 		}
 	}
 
