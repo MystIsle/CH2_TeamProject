@@ -7,5 +7,5 @@ class UMonsterAttackSkill : public USkill
 public:
     UMonsterAttackSkill(ACharacter* NewOwner);
     
-    void Play(ACharacter* Target) override;
+    void OnPlay(ACharacter* Target) override;
 };

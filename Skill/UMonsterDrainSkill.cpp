@@ -7,7 +7,7 @@ UMonsterDrainSkill::UMonsterDrainSkill(ACharacter* NewOwner)
 {
 }
 
-void UMonsterDrainSkill::Play(ACharacter* Target)
+void UMonsterDrainSkill::OnPlay(ACharacter* Target)
 {
     FDamageResult result;
     result.Attacker = Owner;

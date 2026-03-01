@@ -6,7 +6,7 @@ UPlayerStrikeSkill::UPlayerStrikeSkill(ACharacter* NewOwner)
 {
 }
 
-void UPlayerStrikeSkill::Play(ACharacter* Target)
+void UPlayerStrikeSkill::OnPlay(ACharacter* Target)
 {
     FDamageResult result;
     result.Attacker = Owner;

@@ -70,6 +70,8 @@ public:
 	void Heal(int amount);
 	void PrintName();
 	void ShowStat();
+	bool HasEnoughMp(int Cost) const;
+	void ConsumeMp(int Cost);
 	virtual void PlayTurn(ACharacter* Target) = 0;
 	int GetRandomInt(int Max = 100);
 };

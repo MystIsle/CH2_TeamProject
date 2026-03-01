@@ -55,6 +55,17 @@ void ACharacter::Heal(int amount)
 	cout << ActualHeal << " HP를 회복했습니다...!" << endl;
 }
 
+bool ACharacter::HasEnoughMp(int Cost) const
+{
+	return Stat.Mp >= Cost;
+}
+
+void ACharacter::ConsumeMp(int Cost)
+{
+	Stat.Mp -= Cost;
+	if (Stat.Mp < 0) Stat.Mp = 0;
+}
+
 int ACharacter::GetRandomInt(int Max)
 {
 	static std::random_device rd;

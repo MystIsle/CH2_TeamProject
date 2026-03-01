@@ -8,7 +8,7 @@ UMonsterAttackSkill::UMonsterAttackSkill(ACharacter* NewOwner)
 
 }
 
-void UMonsterAttackSkill::Play(ACharacter* Target)
+void UMonsterAttackSkill::OnPlay(ACharacter* Target)
 {
     int Damage = Owner->GetAtk();
 

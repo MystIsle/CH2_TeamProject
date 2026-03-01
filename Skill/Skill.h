@@ -19,5 +19,9 @@ protected:
 public:
 	const std::string& GetName() const { return Name; }
 	int GetMpCost() const { return MpCost; }
-	virtual void Play(ACharacter* Target) = 0;
+	bool CanUse() const;
+	void Play(ACharacter* Target);
+
+protected:
+	virtual void OnPlay(ACharacter* Target) = 0;
 };

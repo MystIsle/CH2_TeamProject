@@ -6,5 +6,5 @@ class UPlayerStrikeSkill : public USkill
 public:
     UPlayerStrikeSkill(ACharacter* NewOwner);
 
-    void Play(ACharacter* Target) override;
+    void OnPlay(ACharacter* Target) override;
 };

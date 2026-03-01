@@ -12,5 +12,5 @@ class UPlayerAttackSkill : public USkill
 public:
     UPlayerAttackSkill(ACharacter* NewOwner);
     
-    void Play(ACharacter* Target) override;
+    void OnPlay(ACharacter* Target) override;
 };
