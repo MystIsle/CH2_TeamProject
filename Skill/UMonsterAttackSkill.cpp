@@ -3,7 +3,7 @@
 #include "../Character/Character.h"
 
 UMonsterAttackSkill::UMonsterAttackSkill(ACharacter* NewOwner)
-    : USkill(NewOwner, "이빨 공격")
+    : USkill(NewOwner, "이빨 공격", 0)
 {
 
 }

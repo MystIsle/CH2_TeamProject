@@ -3,7 +3,7 @@
 #include "../Character/Character.h"
 
 UMonsterDrainSkill::UMonsterDrainSkill(ACharacter* NewOwner)
-    : USkill(NewOwner, "흡혈")
+    : USkill(NewOwner, "흡혈", 15)
 {
 }
 
